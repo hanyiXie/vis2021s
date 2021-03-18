@@ -46,29 +46,29 @@
   <path d="M256 256 V270 V242 M256 256 H270 H242" stroke="black" fill="white"></path>
   <text x="254" y="250" font-size="16" text-anchor="middle" fill="red">(256, 256)</text>
 
-  <rect x="5" y="125" stroke-width="10" stroke="#F00" fill="none" opacity="0.3" width="384" height="256"/>
-  <path d="M10 235,L112 235" stroke-width="10" stroke="#F00" fill="none" opacity="0.3"/>
-  <path d="M280 235,L384 235" stroke-width="10" stroke="#F00" fill="none" opacity="0.3"/>
+  <rect x="5" y="125" stroke-width="10" stroke="#F00" fill="none" opacity="1" width="384" height="256"/>
+  <path d="M10 235,L112 235" stroke-width="10" stroke="#F00" fill="none" opacity="1"/>
+  <path d="M280 235,L384 235" stroke-width="10" stroke="#F00" fill="none" opacity="1"/>
   <path d="M200 118 ,
            A200 118, -30, 0, 0, 230 64,
            A230 64, 10, 0, 0, 170 64,
            A170 64, -40, 0, 1, 192 10" 
-           stroke-width="10" stroke="#F00" fill="none" opacity="0.3"/>
+           stroke-width="10" stroke="#F00" fill="none" opacity="1"/>
   <path d="M170 325,
            A170 330, 0, 0, 0, 180 352,
            A180 352, 0, 0, 0, 205 352,
            A205 352, 0, 0, 0, 218 326"
-           stroke-width="10" stroke="#F00" fill="none" opacity="0.3"/>
+           stroke-width="10" stroke="#F00" fill="none" opacity="1"/>
   <path d="M143 385,
            A143 385, 50, 0, 0, 128 440,
            M138 400,
            A138 400, 40, 0, 0, 85 460,
            A85 460, 70, 0, 0, 87 487,
-           A87 487, 10, 0, 0, 120 470" stroke-width="10" stroke="#F00" fill="none" opacity="0.3"/>
+           A87 487, 10, 0, 0, 120 470" stroke-width="10" stroke="#F00" fill="none" opacity="1"/>
   <ellipse cx="145" cy="470" rx="30" ry="20" 
-           transform="rotate(60,145,470)" stroke-width="10" stroke="#F00" fill="none" opacity="0.3"/>
+           transform="rotate(60,145,470)" stroke-width="10" stroke="#F00" fill="none" opacity="1"/>
   <ellipse cx="244" cy="470" rx="27" ry="20" 
-           transform="rotate(-60, 244, 470)" stroke-width="10" stroke="#F00" fill="none" opacity="0.3"/>
+           transform="rotate(-60, 244, 470)" stroke-width="10" stroke="#F00" fill="none" opacity="1"/>
   <path d="M244 385,
            A244 385, 50, 0, 1, 258 440,
            M250 405,
@@ -76,17 +76,17 @@
            A10 10, 0, 0, 1, 295 490,
            A295 490, 0, 0, 1, 268 470,
            M170 490,
-           A170 490, 70, 0, 0, 220 490" stroke-width="10" stroke="#F00" fill="none" opacity="0.3"/>
+           A170 490, 70, 0, 0, 220 490" stroke-width="10" stroke="#F00" fill="none" opacity="1"/>
   <path d="M281 425,
            A13 4, 0, 0, 1, 374 420,
            A15 7, -30, 0, 0, 445 390,"
-           stroke-width="10" stroke="#F00" fill="none" opacity="0.3"/>
+           stroke-width="10" stroke="#F00" fill="none" opacity="1"/>
   <path d="M470 370,
            A10 15, 25, 0, 1, 440 358z"
-           stroke-width="10" stroke="#F00" fill="none" opacity="0.3"/>
-  <path d="M433 310, L430 330, 442 325, 438 345" stroke-width="9" stroke="#F00" fill="none" opacity="0.3"/>
-  <path d="M510 335, L493 340, 500 348, 485 353" stroke-width="9" stroke="#F00" fill="none" opacity="0.3"/>
-  <path d="M460 343, L453 358" stroke-width="10" stroke="#F00" fill="none" opacity="0.3"/>
-  <path d="M471 348, L465 363" stroke-width="10" stroke="#F00" fill="none" opacity="0.3"/>
+           stroke-width="10" stroke="#F00" fill="none" opacity="1"/>
+  <path d="M433 310, L430 330, 442 325, 438 345" stroke-width="9" stroke="#F00" fill="none" opacity="1"/>
+  <path d="M510 335, L493 340, 500 348, 485 353" stroke-width="9" stroke="#F00" fill="none" opacity="1"/>
+  <path d="M460 343, L453 358" stroke-width="10" stroke="#F00" fill="none" opacity="1"/>
+  <path d="M471 348, L465 363" stroke-width="10" stroke="#F00" fill="none" opacity="1"/>
 </svg>
     
