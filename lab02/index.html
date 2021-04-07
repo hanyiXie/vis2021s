@@ -1,14 +1,158 @@
 <!DOCTYPE html>
-<html lang="zh-Hant-TW">
-  <head>
-    <meta charset="utf-8">
-    <title>D3 Page Template</title>
-    <script src="http://d3js.org/d3.v6.min.js" charset="utf-8"></script> <!-- v6.5.0 -->
-</head>
-<body>
-    <script type="text/javascript">
-      // Your beautiful D3 code will go here
-    </script>
-  </body>
-</html>
-  
+<!-- saved from url=(0102)file:///C:/Users/hyxie/Downloads/OneDrive-2021-04-06/Example02(%E6%94%B9%E7%8E%A9%E4%BA%86)/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script src="./index_files/d3.v4.js.下載"></script>
+        <script src="./index_files/dataLoader.js.下載"></script>
+        <script src="./index_files/getNode.js.下載"></script>
+		
+		<style>
+      		@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@900&display=swap');
+
+		    div, ul {
+		      border: solid black 1px;
+		      margin: 5px;
+		      padding: 10px;
+		      background-color: rgba(255, 255, 128, 0.1);
+		    }
+
+		    div:hover, ul:hover {
+		      background-color: rgba(255, 128, 128, 0.1);
+		    }
+
+			html, body {
+				height: 100%;
+				width: 100%;
+				padding: 0;
+				margin: 0;
+				padding: 10px;
+		        background-color: rgba(255, 255, 0, 0.02);
+			}
+
+			svg {
+		        font-family: 'Noto Serif JP', serif;
+			}
+
+			#dropfile {
+				height: 5%;
+				width: 100%;
+				border-style: dotted;;
+				display: block;
+				text-align: center;
+			    animation-name: oxxo;
+			    animation-duration: 2s;
+			    animation-iteration-count: infinite;
+			    padding: 10px;
+		        background-color: rgba(255, 255, 0, 0.1);
+		        font-family: 'Noto Serif JP', serif;
+		        margin-bottom: 10px;
+			}
+			#dropfile:hover {
+			    background-color: rgba(128, 255, 255, 0.1);
+			}
+			@keyframes oxxo{
+			    from {
+			        border-style: dotted;;
+			        border-color: blue;
+			        color: blue;
+			    }
+			    to {
+			        border-style: solid;
+			        border-color: red;
+			        color: crimson;
+			    }
+			}
+			
+			#treemap {
+				height: 95%;
+				width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			Lab 02 treemap
+		</div>
+		<ul>
+			<li>遠距教學授課防疫演練: 2021.03.18 (四) </li>
+			<li>上台報告: 2021.04.01 (四) </li>
+			<li><a href="https://www.d3-graph-gallery.com/graph/treemap_custom.html">Treemap customization in d3.js</a></li>
+			<li><a href="http://blog.infographics.tw/2015/10/d3js-tutorial-treemap-and-budget/">D3.js 實戰 － 利用 Treemap Layout 將政府預算視覺化</a></li>
+		</ul>
+
+		<div id="dropfile" for="csvfile">
+			CSV 資料扔過來! Drop your CSV here.
+		</div>
+		<div>
+			<select id="ObjectKeys"><option value="路口名稱">路口名稱</option><option value="A1">A1</option><option value="A2件數">A2件數</option><option value="A2受傷">A2受傷</option><option value="A3">A3</option><option value="總件數">總件數</option></select>
+		</div>
+		<div id="treemap"><svg width="1923" height="841"><g><rect x="0" y="70" width="234.8370764675977" height="38.99808429118772" style="stroke: red; fill: rgb(177, 157, 76); opacity: 0.5;"></rect><rect x="0" y="113.99808429118772" width="234.8370764675977" height="142.52298850574712" style="stroke: red; fill: rgb(177, 157, 76); opacity: 0.794118;"></rect><rect x="0" y="261.52107279693485" width="234.8370764675977" height="194.28544061302676" style="stroke: red; fill: rgb(177, 157, 76); opacity: 0.941176;"></rect><rect x="239.8370764675977" y="70" width="201.48225126349476" height="130.27917771883284" style="stroke: red; fill: rgb(177, 157, 76); opacity: 0.705882;"></rect><rect x="239.8370764675977" y="205.27917771883284" width="201.48225126349476" height="250.5273356911287" style="stroke: red; fill: rgb(177, 157, 76); opacity: 1;"></rect><rect x="0" y="495.8065134099616" width="207.9739530667038" height="43.811211061136135" style="stroke: red; fill: rgb(189, 179, 18); opacity: 0.5;"></rect><rect x="0" y="544.6177244710977" width="207.9739530667038" height="124.2061469265368" style="stroke: red; fill: rgb(189, 179, 18); opacity: 0.705882;"></rect><rect x="0" y="673.8238713976345" width="207.9739530667038" height="147.17612860236545" style="stroke: red; fill: rgb(189, 179, 18); opacity: 0.764706;"></rect><rect x="212.9739530667038" y="495.8065134099616" width="85.74542348059555" height="325.19348659003816" style="stroke: red; fill: rgb(189, 179, 18); opacity: 0.735294;"></rect><rect x="303.71937654729936" y="495.8065134099616" width="137.59995118379305" height="325.19348659003816" style="stroke: red; fill: rgb(189, 179, 18); opacity: 0.941176;"></rect><rect x="461.31932773109247" y="70" width="151.5889675372223" height="60.33748006379585" style="stroke: red; fill: rgb(86, 106, 194); opacity: 0.5;"></rect><rect x="461.31932773109247" y="135.33748006379585" width="151.5889675372223" height="198.6992025518341" style="stroke: red; fill: rgb(86, 106, 194); opacity: 0.764706;"></rect><rect x="617.9082952683148" y="70" width="214.22455455211139" height="162.46160856687172" style="stroke: red; fill: rgb(86, 106, 194); opacity: 0.823529;"></rect><rect x="617.9082952683148" y="237.46160856687172" width="214.22455455211139" height="96.57507404875824" style="stroke: red; fill: rgb(86, 106, 194); opacity: 0.647059;"></rect><rect x="837.1328498204261" y="70" width="158.29992328881758" height="264.03668261562996" style="stroke: red; fill: rgb(86, 106, 194); opacity: 0.911765;"></rect><rect x="461.31932773109247" y="374.03668261562996" width="146.90489344909236" height="59.447634237107934" style="stroke: red; fill: rgb(216, 163, 72); opacity: 0.5;"></rect><rect x="461.31932773109247" y="438.4843168527379" width="146.90489344909236" height="59.447634237107934" style="stroke: red; fill: rgb(216, 163, 72); opacity: 0.5;"></rect><rect x="461.31932773109247" y="502.9319510898458" width="146.90489344909236" height="59.44763423710788" style="stroke: red; fill: rgb(216, 163, 72); opacity: 0.5;"></rect><rect x="613.2242211801848" y="374.03668261562996" width="188.6042759645294" height="188.34290271132375" style="stroke: red; fill: rgb(216, 163, 72); opacity: 0.852941;"></rect><rect x="806.8284971447142" y="374.03668261562996" width="188.6042759645295" height="188.34290271132375" style="stroke: red; fill: rgb(216, 163, 72); opacity: 0.852941;"></rect><rect x="461.31932773109247" y="602.3795853269537" width="147.5296577167452" height="60.54391464554806" style="stroke: red; fill: rgb(68, 207, 235); opacity: 0.5;"></rect><rect x="461.31932773109247" y="667.9234999725018" width="147.5296577167452" height="153.07650002749813" style="stroke: red; fill: rgb(68, 207, 235); opacity: 0.676471;"></rect><rect x="613.8489854478377" y="602.3795853269537" width="210.6453781512605" height="106.81020733652304" style="stroke: red; fill: rgb(68, 207, 235); opacity: 0.676471;"></rect><rect x="613.8489854478377" y="714.1897926634767" width="210.6453781512605" height="106.81020733652304" style="stroke: red; fill: rgb(68, 207, 235); opacity: 0.676471;"></rect><rect x="829.4943635990982" y="602.3795853269537" width="165.93840951014556" height="218.62041467304618" style="stroke: red; fill: rgb(68, 207, 235); opacity: 0.852941;"></rect><rect x="1015.4327731092437" y="70" width="171.96661470017875" height="52.25910788837618" style="stroke: red; fill: rgb(197, 65, 128); opacity: 0.5;"></rect><rect x="1015.4327731092437" y="127.25910788837618" width="171.96661470017875" height="186.98642056690838" style="stroke: red; fill: rgb(197, 65, 128); opacity: 0.794118;"></rect><rect x="1192.3993878094225" y="70" width="200.66390357047794" height="183.38324825108717" style="stroke: red; fill: rgb(197, 65, 128); opacity: 0.852941;"></rect><rect x="1192.3993878094225" y="258.38324825108714" width="200.66390357047794" height="55.86228020419742" style="stroke: red; fill: rgb(197, 65, 128); opacity: 0.529412;"></rect><rect x="1398.0632913799004" y="70" width="140.87788509068787" height="244.24552845528456" style="stroke: red; fill: rgb(197, 65, 128); opacity: 0.823529;"></rect><rect x="1015.4327731092437" y="354.24552845528456" width="134.81703792628173" height="65.74985365853661" style="stroke: red; fill: rgb(14, 203, 126); opacity: 0.5;"></rect><rect x="1015.4327731092437" y="424.99538211382117" width="134.81703792628173" height="132.3379512195122" style="stroke: red; fill: rgb(14, 203, 126); opacity: 0.617647;"></rect><rect x="1155.2498110355255" y="354.24552845528456" width="213.1145791649992" height="83.03714821763606" style="stroke: red; fill: rgb(14, 203, 126); opacity: 0.617647;"></rect><rect x="1155.2498110355255" y="442.2826766729206" width="213.1145791649992" height="115.05065666041276" style="stroke: red; fill: rgb(14, 203, 126); opacity: 0.705882;"></rect><rect x="1373.3643902005247" y="354.24552845528456" width="165.57678627006362" height="203.08780487804881" style="stroke: red; fill: rgb(14, 203, 126); opacity: 0.823529;"></rect><rect x="1015.4327731092437" y="597.3333333333334" width="165.15392498462802" height="53.89898989898984" style="stroke: red; fill: rgb(254, 204, 146); opacity: 0.5;"></rect><rect x="1015.4327731092437" y="656.2323232323232" width="165.15392498462802" height="164.7676767676768" style="stroke: red; fill: rgb(254, 204, 146); opacity: 0.735294;"></rect><rect x="1185.5866980938717" y="597.3333333333334" width="206.40336134453787" height="153.95121951219505" style="stroke: red; fill: rgb(254, 204, 146); opacity: 0.794118;"></rect><rect x="1185.5866980938717" y="756.2845528455284" width="206.40336134453787" height="64.71544715447158" style="stroke: red; fill: rgb(254, 204, 146); opacity: 0.558824;"></rect><rect x="1396.9900594384096" y="597.3333333333334" width="141.95111703217867" height="223.66666666666663" style="stroke: red; fill: rgb(254, 204, 146); opacity: 0.794118;"></rect><rect x="1558.9411764705883" y="70" width="72.48571428571427" height="129.29242675511324" style="stroke: red; fill: rgb(128, 178, 121); opacity: 0.5;"></rect><rect x="1636.4268907563026" y="70" width="236.57310924369744" height="129.29242675511324" style="stroke: red; fill: rgb(128, 178, 121); opacity: 0.764706;"></rect><rect x="1558.9411764705883" y="204.29242675511324" width="175.23170184104174" height="174.9985171738902" style="stroke: red; fill: rgb(128, 178, 121); opacity: 0.764706;"></rect><rect x="1558.9411764705883" y="384.29094392900345" width="175.23170184104174" height="66.32016718210741" style="stroke: red; fill: rgb(128, 178, 121); opacity: 0.529412;"></rect><rect x="1739.17287831163" y="204.29242675511324" width="133.82712168836997" height="246.31868435599768" style="stroke: red; fill: rgb(128, 178, 121); opacity: 0.794118;"></rect><rect x="1558.9411764705883" y="490.6111111111109" width="54.60439560439568" height="167.43157564343988" style="stroke: red; fill: rgb(181, 251, 153); opacity: 0.5;"></rect><rect x="1618.545572074984" y="490.6111111111109" width="124.72721396250813" height="167.43157564343988" style="stroke: red; fill: rgb(181, 251, 153); opacity: 0.647059;"></rect><rect x="1748.272786037492" y="490.6111111111109" width="124.72721396250813" height="167.43157564343988" style="stroke: red; fill: rgb(181, 251, 153); opacity: 0.647059;"></rect><rect x="1558.9411764705883" y="663.0426867545508" width="117.42954856361143" height="157.95731324544874" style="stroke: red; fill: rgb(181, 251, 153); opacity: 0.617647;"></rect><rect x="1681.3707250341997" y="663.0426867545508" width="191.62927496580028" height="157.95731324544874" style="stroke: red; fill: rgb(181, 251, 153); opacity: 0.764706;"></rect><text x="1" y="90" font-size="1rem" fill="white">A1</text><text x="1" y="133.99808429118772" font-size="1rem" fill="white">A2件數</text><text x="1" y="281.52107279693485" font-size="1rem" fill="white">A2受傷</text><text x="240.8370764675977" y="90" font-size="1rem" fill="white">A3</text><text x="240.8370764675977" y="225.27917771883284" font-size="1rem" fill="white">總件數</text><text x="1" y="515.8065134099616" font-size="1rem" fill="white">A1</text><text x="1" y="564.6177244710977" font-size="1rem" fill="white">A2件數</text><text x="1" y="693.8238713976345" font-size="1rem" fill="white">A2受傷</text><text x="213.9739530667038" y="515.8065134099616" font-size="1rem" fill="white">A3</text><text x="304.71937654729936" y="515.8065134099616" font-size="1rem" fill="white">總件數</text><text x="462.31932773109247" y="90" font-size="1rem" fill="white">A1</text><text x="462.31932773109247" y="155.33748006379585" font-size="1rem" fill="white">A2件數</text><text x="618.9082952683148" y="90" font-size="1rem" fill="white">A2受傷</text><text x="618.9082952683148" y="257.46160856687175" font-size="1rem" fill="white">A3</text><text x="838.1328498204261" y="90" font-size="1rem" fill="white">總件數</text><text x="462.31932773109247" y="394.03668261562996" font-size="1rem" fill="white">A1</text><text x="462.31932773109247" y="458.4843168527379" font-size="1rem" fill="white">A2件數</text><text x="462.31932773109247" y="522.9319510898458" font-size="1rem" fill="white">A2受傷</text><text x="614.2242211801848" y="394.03668261562996" font-size="1rem" fill="white">A3</text><text x="807.8284971447142" y="394.03668261562996" font-size="1rem" fill="white">總件數</text><text x="462.31932773109247" y="622.3795853269537" font-size="1rem" fill="white">A1</text><text x="462.31932773109247" y="687.9234999725018" font-size="1rem" fill="white">A2件數</text><text x="614.8489854478377" y="622.3795853269537" font-size="1rem" fill="white">A2受傷</text><text x="614.8489854478377" y="734.1897926634767" font-size="1rem" fill="white">A3</text><text x="830.4943635990982" y="622.3795853269537" font-size="1rem" fill="white">總件數</text><text x="1016.4327731092437" y="90" font-size="1rem" fill="white">A1</text><text x="1016.4327731092437" y="147.25910788837618" font-size="1rem" fill="white">A2件數</text><text x="1193.3993878094225" y="90" font-size="1rem" fill="white">A2受傷</text><text x="1193.3993878094225" y="278.38324825108714" font-size="1rem" fill="white">A3</text><text x="1399.0632913799004" y="90" font-size="1rem" fill="white">總件數</text><text x="1016.4327731092437" y="374.24552845528456" font-size="1rem" fill="white">A1</text><text x="1016.4327731092437" y="444.99538211382117" font-size="1rem" fill="white">A2件數</text><text x="1156.2498110355255" y="374.24552845528456" font-size="1rem" fill="white">A2受傷</text><text x="1156.2498110355255" y="462.2826766729206" font-size="1rem" fill="white">A3</text><text x="1374.3643902005247" y="374.24552845528456" font-size="1rem" fill="white">總件數</text><text x="1016.4327731092437" y="617.3333333333334" font-size="1rem" fill="white">A1</text><text x="1016.4327731092437" y="676.2323232323232" font-size="1rem" fill="white">A2件數</text><text x="1186.5866980938717" y="617.3333333333334" font-size="1rem" fill="white">A2受傷</text><text x="1186.5866980938717" y="776.2845528455284" font-size="1rem" fill="white">A3</text><text x="1397.9900594384096" y="617.3333333333334" font-size="1rem" fill="white">總件數</text><text x="1559.9411764705883" y="90" font-size="1rem" fill="white">A1</text><text x="1637.4268907563026" y="90" font-size="1rem" fill="white">A2件數</text><text x="1559.9411764705883" y="224.29242675511324" font-size="1rem" fill="white">A2受傷</text><text x="1559.9411764705883" y="404.29094392900345" font-size="1rem" fill="white">A3</text><text x="1740.17287831163" y="224.29242675511324" font-size="1rem" fill="white">總件數</text><text x="1559.9411764705883" y="510.6111111111109" font-size="1rem" fill="white">A1</text><text x="1619.545572074984" y="510.6111111111109" font-size="1rem" fill="white">A2件數</text><text x="1749.272786037492" y="510.6111111111109" font-size="1rem" fill="white">A2受傷</text><text x="1559.9411764705883" y="683.0426867545508" font-size="1rem" fill="white">A3</text><text x="1682.3707250341997" y="683.0426867545508" font-size="1rem" fill="white">總件數</text><text x="1" y="105" font-size=".9rem" fill="white">0</text><text x="1" y="148.99808429118772" font-size=".9rem" fill="white">10</text><text x="1" y="296.52107279693485" font-size=".9rem" fill="white">15</text><text x="240.8370764675977" y="105" font-size=".9rem" fill="white">7</text><text x="240.8370764675977" y="240.27917771883284" font-size=".9rem" fill="white">17</text><text x="1" y="530.8065134099616" font-size=".9rem" fill="white">0</text><text x="1" y="579.6177244710977" font-size=".9rem" fill="white">7</text><text x="1" y="708.8238713976345" font-size=".9rem" fill="white">9</text><text x="213.9739530667038" y="530.8065134099616" font-size=".9rem" fill="white">8</text><text x="304.71937654729936" y="530.8065134099616" font-size=".9rem" fill="white">15</text><text x="462.31932773109247" y="105" font-size=".9rem" fill="white">0</text><text x="462.31932773109247" y="170.33748006379585" font-size=".9rem" fill="white">9</text><text x="618.9082952683148" y="105" font-size=".9rem" fill="white">11</text><text x="618.9082952683148" y="272.46160856687175" font-size=".9rem" fill="white">5</text><text x="838.1328498204261" y="105" font-size=".9rem" fill="white">14</text><text x="462.31932773109247" y="409.03668261562996" font-size=".9rem" fill="white">0</text><text x="462.31932773109247" y="473.4843168527379" font-size=".9rem" fill="white">0</text><text x="462.31932773109247" y="537.9319510898458" font-size=".9rem" fill="white">0</text><text x="614.2242211801848" y="409.03668261562996" font-size=".9rem" fill="white">12</text><text x="807.8284971447142" y="409.03668261562996" font-size=".9rem" fill="white">12</text><text x="462.31932773109247" y="637.3795853269537" font-size=".9rem" fill="white">0</text><text x="462.31932773109247" y="702.9234999725018" font-size=".9rem" fill="white">6</text><text x="614.8489854478377" y="637.3795853269537" font-size=".9rem" fill="white">6</text><text x="614.8489854478377" y="749.1897926634767" font-size=".9rem" fill="white">6</text><text x="830.4943635990982" y="637.3795853269537" font-size=".9rem" fill="white">12</text><text x="1016.4327731092437" y="105" font-size=".9rem" fill="white">0</text><text x="1016.4327731092437" y="162.25910788837618" font-size=".9rem" fill="white">10</text><text x="1193.3993878094225" y="105" font-size=".9rem" fill="white">12</text><text x="1193.3993878094225" y="293.38324825108714" font-size=".9rem" fill="white">1</text><text x="1399.0632913799004" y="105" font-size=".9rem" fill="white">11</text><text x="1016.4327731092437" y="389.24552845528456" font-size=".9rem" fill="white">0</text><text x="1016.4327731092437" y="459.99538211382117" font-size=".9rem" fill="white">4</text><text x="1156.2498110355255" y="389.24552845528456" font-size=".9rem" fill="white">4</text><text x="1156.2498110355255" y="477.2826766729206" font-size=".9rem" fill="white">7</text><text x="1374.3643902005247" y="389.24552845528456" font-size=".9rem" fill="white">11</text><text x="1016.4327731092437" y="632.3333333333334" font-size=".9rem" fill="white">0</text><text x="1016.4327731092437" y="691.2323232323232" font-size=".9rem" fill="white">8</text><text x="1186.5866980938717" y="632.3333333333334" font-size=".9rem" fill="white">10</text><text x="1186.5866980938717" y="791.2845528455284" font-size=".9rem" fill="white">2</text><text x="1397.9900594384096" y="632.3333333333334" font-size=".9rem" fill="white">10</text><text x="1559.9411764705883" y="105" font-size=".9rem" fill="white">0</text><text x="1637.4268907563026" y="105" font-size=".9rem" fill="white">9</text><text x="1559.9411764705883" y="239.29242675511324" font-size=".9rem" fill="white">9</text><text x="1559.9411764705883" y="419.29094392900345" font-size=".9rem" fill="white">1</text><text x="1740.17287831163" y="239.29242675511324" font-size=".9rem" fill="white">10</text><text x="1559.9411764705883" y="525.6111111111109" font-size=".9rem" fill="white">0</text><text x="1619.545572074984" y="525.6111111111109" font-size=".9rem" fill="white">5</text><text x="1749.272786037492" y="525.6111111111109" font-size=".9rem" fill="white">5</text><text x="1559.9411764705883" y="698.0426867545508" font-size=".9rem" fill="white">4</text><text x="1682.3707250341997" y="698.0426867545508" font-size=".9rem" fill="white">9</text><text x="1" y="56" font-size="1.1rem" fill="black">西屯區臺灣大道黎明路</text><text x="1" y="481.8065134099616" font-size="1.1rem" fill="black">西屯區臺灣大道惠中路</text><text x="462.31932773109247" y="56" font-size="1.1rem" fill="black">西屯區臺灣大道文心路</text><text x="462.31932773109247" y="360.03668261562996" font-size="1.1rem" fill="black">西屯區中清聯絡道環中路</text><text x="462.31932773109247" y="588.3795853269537" font-size="1.1rem" fill="black">南屯區五權西路二段環中路</text><text x="1016.4327731092437" y="56" font-size="1.1rem" fill="black">北屯區文心路崇德路</text><text x="1016.4327731092437" y="340.24552845528456" font-size="1.1rem" fill="black">南區忠明南路國光路</text><text x="1016.4327731092437" y="583.3333333333334" font-size="1.1rem" fill="black">南區國光路復興路</text><text x="1559.9411764705883" y="56" font-size="1.1rem" fill="black">西區自由路林森路</text><text x="1559.9411764705883" y="476.6111111111109" font-size="1.1rem" fill="black">西屯區工業區一路臺灣大道</text></g></svg></div>
+
+
+		<script>
+			var Base64 = { _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=", encode: function (r) { var t, e, o, a, h, c, n = "", d = 0; for (r = Base64._utf8_encode(r); d < r.length;)o = (c = r.charCodeAt(d++)) >> 2, a = (3 & c) << 4 | (t = r.charCodeAt(d++)) >> 4, h = (15 & t) << 2 | (e = r.charCodeAt(d++)) >> 6, c = 63 & e, isNaN(t) ? h = c = 64 : isNaN(e) && (c = 64), n = n + this._keyStr.charAt(o) + this._keyStr.charAt(a) + this._keyStr.charAt(h) + this._keyStr.charAt(c); return n }, decode: function (r) { var t, e, o, a, h, c = "", n = 0; for (r = r.replace(/[^A-Za-z0-9\+\/\=]/g, ""); n < r.length;)t = this._keyStr.indexOf(r.charAt(n++)) << 2 | (o = this._keyStr.indexOf(r.charAt(n++))) >> 4, e = (15 & o) << 4 | (a = this._keyStr.indexOf(r.charAt(n++))) >> 2, o = (3 & a) << 6 | (h = this._keyStr.indexOf(r.charAt(n++))), c += String.fromCharCode(t), 64 != a && (c += String.fromCharCode(e)), 64 != h && (c += String.fromCharCode(o)); return c = Base64._utf8_decode(c) }, _utf8_encode: function (r) { r = r.replace(/\r\n/g, "\n"); for (var t = "", e = 0; e < r.length; e++) { var o = r.charCodeAt(e); o < 128 ? t += String.fromCharCode(o) : (127 < o && o < 2048 ? t += String.fromCharCode(o >> 6 | 192) : (t += String.fromCharCode(o >> 12 | 224), t += String.fromCharCode(o >> 6 & 63 | 128)), t += String.fromCharCode(63 & o | 128)) } return t }, _utf8_decode: function (r) { for (var t = "", e = 0, o = c1 = c2 = 0; e < r.length;)(o = r.charCodeAt(e)) < 128 ? (t += String.fromCharCode(o), e++) : 191 < o && o < 224 ? (c2 = r.charCodeAt(e + 1), t += String.fromCharCode((31 & o) << 6 | 63 & c2), e += 2) : (c2 = r.charCodeAt(e + 1), c3 = r.charCodeAt(e + 2), t += String.fromCharCode((15 & o) << 12 | (63 & c2) << 6 | 63 & c3), e += 3); return t } };
+		</script>
+
+		<script>
+			var csvData = null
+			window.addEventListener('load', function(){
+                var treemapContainer = document.getElementById('treemap')
+                var objectKeys = document.getElementById("ObjectKeys")
+
+                document.getElementById("ObjectKeys").addEventListener('change', function(evt){
+					if(evt.target.value == 'selectValue' ){
+						return;
+					}
+				
+                    //clear container
+                    if (treemapContainer.innerHTML.length) {
+                        treemapContainer.innerHTML = ''
+                    }
+
+
+                    dataClassifier(objectKeys.value, function(data, layers){
+                        node = getNode(data, layers, treemapContainer)
+                        treemapContainer.appendChild(node)
+                    })
+				})
+
+				document.getElementById('dropfile').addEventListener('dragover',function(evt){
+					evt.preventDefault()
+				})
+
+				document.getElementById('dropfile').addEventListener('drop', function(evt){
+					evt.preventDefault()
+
+					var files = evt.dataTransfer.files
+
+					if (files.length) {
+                        if (treemapContainer.innerHTML.length) {
+                            treemapContainer.innerHTML = ''
+                        }
+
+                        if (objectKeys.innerHTML.length) {
+                            objectKeys.innerHTML = ''
+						}
+
+						var csvFile = files[0]
+
+						//讀取csv
+						var fr = new FileReader()
+
+                        fr.onload = function(){
+                            dataLoader(fr.result, function(){
+								dataClassifier(objectKeys.value, function(data, layers){
+									node = getNode(data, layers, treemapContainer)
+									treemapContainer.innerHTML = node.innerHTML
+								}) 
+							})			                         
+                        }
+
+						fr.readAsText(csvFile)
+					}
+				})
+			})
+		</script>
+
+	
+	
+</body></html>
