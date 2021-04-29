@@ -1,14 +1,50 @@
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
-  <head>
+<head>
     <meta charset="utf-8">
-    <title>D3 Page Template</title>
-    <script src="http://d3js.org/d3.v6.min.js" charset="utf-8"></script> <!-- v6.5.0 -->
+    <title>Lab</title>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script> <!-- v6.5.0 -->
+    <style type="text/css">
+    	div.bar {
+    		border:1px black solid;
+    		margin: 2px 4px 2px 4px;
+    		background-color: teal;
+		  	display: inline-block;
+		  	width: 15px;
+		  	height: 75px; /* We'll override height later */
+		}
+    </style>
 </head>
 <body>
     <script type="text/javascript">
-      // Your beautiful D3 code will go here
+	    // Your beautiful D3 code will go here
+
+	  	// d3.text("data.csv",function(data){
+	  	// 	var parsedCSV = d3.csv.parseRows(data);
+	  	// 	d3.select("body")
+	  	// 		.selectAll("div")
+	  	// 		.data(parsedCSV)
+	  	// 		.enter()
+	  	// 		.append("div")
+	  	// 		.filter(function(d,i){
+	  	// 			return (i!=0);
+	  	// 		})
+	  	// 		.attr("class","bar")
+	  	// 		.style("height",function(d){
+	  	// 			return d[1] +'px';
+	  	// 		});
+	  	// });
+	    d3.csv("data.csv",function(data){
+	    	d3.select("body")
+  			.selectAll("div")
+  			.data(data)
+  			.enter()
+  			.append("div")
+  			.attr("class","bar")
+  			.style("height",function(d){
+  				return d['頻率']*10 +'px';
+  			});
+	    });
     </script>
-  </body>
-</html>
+  </html>
   
