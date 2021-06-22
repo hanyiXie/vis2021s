@@ -45,6 +45,9 @@
             <div id="train-vs-test"></div>
         </div>
         <div id="left">
+	    <h1>
+                鐵達尼號生存預測
+            </h1>
             <div id="training-section">
 				<h1>
 					訓練資料集的部分
@@ -82,8 +85,6 @@
                 .selectAll("p")
                 .data(d3.range(1, 2))
                 .enter()
-                .append("p")
-                .text("Context")
                 .append("p")
                 .text(train_content)
             ;
