@@ -41,29 +41,85 @@
     </head>
 
     <body>
+		<h1>
+			鐵達尼號乘客生存預測
+		</h1>
+		<table>
+			<tbody>
+				<tr><th><b>Variable</b></th><th><b>Definition</b></th><th><b>Key</b></th></tr>
+				<tr>
+					<td>survival</td>
+					<td>Survival</td>
+					<td>0 = No, 1 = Yes</td>
+				</tr>
+				<tr>
+					<td>pclass</td>
+					<td>Ticket class</td>
+					<td>1 = 1st, 2 = 2nd, 3 = 3rd</td>
+				</tr>
+				<tr>
+					<td>sex</td>
+					<td>Sex</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Age</td>
+					<td>Age in years</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>sibsp</td>
+					<td># of siblings / spouses aboard the Titanic</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>parch</td>
+					<td># of parents / children aboard the Titanic</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>ticket</td>
+					<td>Ticket number</td>
+				<td></td>
+				</tr>
+					<tr>
+					<td>fare</td>
+					<td>Passenger fare</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>cabin</td>
+					<td>Cabin number</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>embarked</td>
+					<td>Port of Embarkation</td>
+					<td>C = Cherbourg, Q = Queenstown, S = Southampton</td>
+				</tr>
+			</tbody>
+		</table>
         <div id="right">
             <div id="train-vs-test"></div>
         </div>
         <div id="left">
-	    <h1>
-		    鐵達尼號生存預測
-            </h1>
             <div id="training-section">
 				<h1>
 					訓練資料集的部分
 				</h1>
             </div>
             <div id="testing-section">
-                <h1>
+                <!--h1>
                     測試資料集的部分
-                </h1>
+                </h1-->
             </div>
 
         </div>
         <script src="./lib/d3.v3.min.js"></script>
-        <script src="./lib/binarydecisiontree.min.js"></script>
+        <script src="./lib/binarydecisiontree.js"></script>
         <script>
-			var Lipsum = "本資料為鐵達尼號乘客生存預測，電影中鐵達尼號在沉船之際演出了人性真實的一面，最終在逃生船不夠得情況下優先讓女士、小孩乘坐。那麼是否能透過乘客的一些資訊來預測該乘客最終是否順利生存下來？經處理後資料集共747筆數據，以7:3切分為訓練集與測試集";
+			var train_content = "本資料為鐵達尼號乘客生存預測，電影中鐵達尼號在沉船之際演出了人性真實的一面，最終在逃生船不夠得情況下優先讓女士、小孩乘坐。那麼是否能透過乘客的一些資訊來預測該乘客最終是否順利生存下來？經處理後資料集共747筆數據，以7:3自動切分為訓練集與測試集，以及刪除含有空值的資料，並透過One hot編碼方法處理類別資料";
+			var test_content = "";
 			window.onload = function() {
 				function resizeRight() {
 					d3.select("#train-vs-test")
@@ -85,7 +141,7 @@
                 .data(d3.range(1, 2))
                 .enter()
                 .append("p")
-                .text(Lipsum)
+                .text(train_content)
             ;
 
             d3.select("#testing-section")
@@ -93,7 +149,7 @@
                     .data(d3.range(1, 2))
                     .enter()
                     .append("p")
-                    .text(Lipsum)
+                    .text(test_content)
                 ;
 				
 			d3.select("#training-section")
