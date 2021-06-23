@@ -37,6 +37,46 @@
             height: 100%;
             float: left;
         }
+		#dataTB {
+			--mdc-layout-grid-margin-desktop: 24px;
+			--mdc-layout-grid-gutter-desktop: 24px;
+			--mdc-layout-grid-column-width-desktop: 72px;
+			--mdc-layout-grid-margin-tablet: 16px;
+			--mdc-layout-grid-gutter-tablet: 16px;
+			--mdc-layout-grid-column-width-tablet: 72px;
+			--mdc-layout-grid-margin-phone: 16px;
+			--mdc-layout-grid-gutter-phone: 16px;
+			--mdc-layout-grid-column-width-phone: 72px;
+			--mdc-theme-on-primary: #fff;
+			--mdc-theme-on-surface: rgba(0, 0, 0, 0.87);
+			--mdc-theme-text-primary-on-background: rgba(0, 0, 0, 0.87);
+			--mdc-theme-text-secondary-on-background: rgba(0, 0, 0, 0.54);
+			--mdc-theme-text-hint-on-background: rgba(0, 0, 0, 0.38);
+			--mdc-theme-text-disabled-on-background: rgba(0, 0, 0, 0.38);
+			--mdc-theme-text-icon-on-background: rgba(0, 0, 0, 0.38);
+			--mdc-theme-primary: #20BEFF;
+			--mdc-theme-error: #F58B8A;
+			--mdc-theme-background: #F8F8F8;
+			--mdc-theme-surface: #fff;
+			--mdc-theme-primary-bg: #20BEFF;
+			--mdc-theme-secondary-bg: #919294;
+			color: rgba(0,0,0,.7);
+			text-align: left;
+			word-break: break-word;
+			font-size: 100%;
+			font: inherit;
+			vertical-align: baseline;
+			border-spacing: 0;
+			width: 100%;
+			border: 1px solid #dedfe0;
+			border-collapse: collapse;
+			background-color: #fff;
+			border-radius: 4px;
+			padding: 0;
+			margin: 36px 0;
+			table-layout: fixed;
+			min-width: 700px;
+		}>
         </style>
     </head>
 
@@ -45,25 +85,80 @@
             <div id="train-vs-test"></div>
         </div>
         <div id="left">
-	    <h1>
-                鐵達尼號生存預測
-            </h1>
+			<h1>
+				鐵達尼號乘客生存預測
+			</h1>
+			<table id = "dataTB">
+				<tbody>
+					<tr><th><b>Variable</b></th><th><b>Definition</b></th><th><b>Key</b></th></tr>
+					<tr>
+						<td>survival</td>
+						<td>Survival</td>
+						<td>0 = No, 1 = Yes</td>
+					</tr>
+					<tr>
+						<td>pclass</td>
+						<td>Ticket class</td>
+						<td>1 = 1st, 2 = 2nd, 3 = 3rd</td>
+					</tr>
+					<tr>
+						<td>sex</td>
+						<td>Sex</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Age</td>
+						<td>Age in years</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>sibsp</td>
+						<td># of siblings / spouses aboard the Titanic</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>parch</td>
+						<td># of parents / children aboard the Titanic</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>ticket</td>
+						<td>Ticket number</td>
+					<td></td>
+					</tr>
+						<tr>
+						<td>fare</td>
+						<td>Passenger fare</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>cabin</td>
+						<td>Cabin number</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>embarked</td>
+						<td>Port of Embarkation</td>
+						<td>C = Cherbourg, Q = Queenstown, S = Southampton</td>
+					</tr>
+				</tbody>
+			</table>
             <div id="training-section">
 				<h1>
 					訓練資料集的部分
 				</h1>
             </div>
             <div id="testing-section">
-                <h1>
+                <!--h1>
                     測試資料集的部分
-                </h1>
+                </h1-->
             </div>
 
         </div>
         <script src="./lib/d3.v3.min.js"></script>
         <script src="./lib/binarydecisiontree.js"></script>
         <script>
-			var train_content = "本資料為鐵達尼號乘客生存預測，電影中鐵達尼號在沉船之際演出了人性真實的一面，最終在逃生船不夠得情況下優先讓女士、小孩乘坐。那麼是否能透過乘客的一些資訊來預測該乘客最終是否順利生存下來？經處理後資料集共747筆數據，以7:3切分為訓練集與測試集";
+			var train_content = "本資料為鐵達尼號乘客生存預測，電影中鐵達尼號在沉船之際演出了人性真實的一面，最終在逃生船不夠得情況下優先讓女士、小孩乘坐。那麼是否能透過乘客的一些資訊來預測該乘客最終是否順利生存下來？經處理後資料集共747筆數據，以7:3自動切分為訓練集與測試集，以及刪除含有空值的資料，並透過One hot編碼方法處理類別資料。";
 			var test_content = "";
 			window.onload = function() {
 				function resizeRight() {
@@ -99,14 +194,14 @@
 				
 			d3.select("#training-section")
 				.selectAll("img")
-				.data(d3.range(1, 6))
+				.data(d3.range(1, 7))
 				.enter()
 				.append("img")
 				.attr("src", function(d){ return "media/" + d + ".png"})
 				.style('height', '350px')
 				.style('width', '350px')
 			;
-
+			
 
 
             var bdt = new BinaryDecisionTree({
